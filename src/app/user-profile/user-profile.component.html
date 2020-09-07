@@ -1,0 +1,90 @@
+<div class="pagPerfil" style="background-color: rgb(12,12,20);">
+    <div class="perfil" style="background-color: rgb(12, 12, 20); background-color: rgb(12, 12, 20);border-right: 3px gray solid;">
+        <div class="full-line" style="padding: 0px 12px; background-color: rgb(32, 32, 36); ">
+            <div>
+                <h3 style="color: white; text-align: center;">Perfil de usuário</h3>
+            </div>
+            <div class="imgProfile">
+                <img src="http://lorempixel.com/400/400/animals/"  >
+            </div>
+        </div>
+        <div class="full-line">
+            <ul>
+                <li (click)="clicaItemMenu('dados')">Dados pessoais</li>
+                <li (click)="clicaItemMenu('endereco')">Endereços</li>
+                <li (click)="clicaItemMenu('pedido')">Pedidos</li>
+                <li (click)="clicaItemMenu('FAQ')">FAQ</li>
+                <li>Voltar</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <span *ngIf="opcSelect == 'dados'" class="dadosPessoais">
+            <div class="dados">
+                <h4>Dados pessoais</h4>
+            </div>
+            <div class="informacoes">
+                <div class="itemDados">
+                    <span class="label">Nome</span>
+                    <span class="value">João Pedro da Silva </span>
+                </div>
+                <div class="itemDados">
+                    <span class="label">Usuário</span>
+                    <span class="value">modUser</span>
+                </div>
+                <div class="itemDados">
+                    <span class="label">E-mail</span>
+                    <span class="value">jpsilva@gmail.com</span>
+                </div>
+                <div class="itemDados">
+                    <span class="label">Data de Nascimento</span>
+                    <span class="value">05/12/1994</span>
+                </div>
+                <div class="itemDados">
+                    <span class="label">Data de Cadastro</span>
+                    <span class="value">01/06/2020</span>
+                </div>
+            </div>
+        </span>
+        <span *ngIf="opcSelect == 'endereco'" class="enderecos">
+            <div class="dados">
+                <h4>Enderecos</h4>
+            </div>
+            <span class="gridsEndereco" *ngFor="let endereco of lsEnderecos">
+                <h2 style="color: white">Endereço {{ endereco.tipoEndereco}}</h2>
+                <div class="informacoes">
+                    <div class="itemDados">
+                        <span class="label">Logradouro</span>
+                        <span class="value">{{ endereco.logradouro}}</span>
+                    </div>
+                    <div class="itemDados">
+                        <span class="label">Bairro</span>
+                        <span class="value">{{ endereco.bairro}}</span>
+                    </div>
+                    <div class="itemDados">
+                        <span class="label">CEP</span>
+                        <span class="value">{{ endereco.cep}}</span>
+                    </div>
+                    <div class="itemDados">
+                        <span class="label">Cidade</span>
+                        <span class="value">{{ endereco.cidade}}</span>
+                    </div>
+                    <div class="itemDados">
+                        <span class="label">UF</span>
+                        <span class="value">{{ endereco.uf}}</span>
+                    </div>
+                </div>
+            </span>
+        </span>
+        <span *ngIf="opcSelect == 'pedido'" class="pedido">
+            <div>
+                <h1 style="text-transform: capitalize;">{{ opcSelect }} em Construção</h1>
+            </div>
+        </span>
+        <span *ngIf="opcSelect == 'FAQ'" class="faq">
+            <div>
+                <h1>{{ opcSelect }} em Construção</h1>
+            </div>
+        </span>
+    </div>
+</div>
