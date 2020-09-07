@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  opcSelect: string = "endereco";
-
+  opcSelect: string = "dados";
+  infoUsuario = {
+    nome: "João Pedro da Silva",
+    usuario: "modUser",
+    email: "jpsilva@gmail.com",
+    dataNascimento: "05/12/1994",
+    dataCadastro: "01/06/2020"
+  }
   lsEnderecos: Array<endereco> = [
     {
       logradouro: "Avenida Braz Leme, 1000",
