@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +13,15 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PedidosComponent } from './user-profile/pedidos/pedidos.component';
+import { FaqComponent } from './user-profile/faq/faq.component';
+import { EnderecosComponent } from './user-profile/enderecos/enderecos.component';
+
+// Localização
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+
+registerLocaleData(localePt, "pt");
 
 @NgModule({
   imports: [
@@ -36,10 +45,17 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ProductDetailsComponent,
     CartComponent,
     ShippingComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PedidosComponent,
+    FaqComponent,
+    EnderecosComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [CartService]
+  providers: [CartService,
+		{
+			provide: LOCALE_ID,
+			useValue: "pt-BR",
+		}]
 })
 export class AppModule { }
 
