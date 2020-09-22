@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +12,16 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PedidosComponent } from './user-profile/pedidos/pedidos.component';
+import { FaqComponent } from './user-profile/faq/faq.component';
+import { EnderecosComponent } from './user-profile/enderecos/enderecos.component';
+
+// Localização
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+
+registerLocaleData(localePt, "pt");
 
 @NgModule({
   imports: [
@@ -24,6 +34,7 @@ import { ShippingComponent } from './shipping/shipping.component';
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
+      { path: 'profile', component: UserProfileComponent }
     ])
   ],
   declarations: [
@@ -33,10 +44,18 @@ import { ShippingComponent } from './shipping/shipping.component';
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    UserProfileComponent,
+    PedidosComponent,
+    FaqComponent,
+    EnderecosComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [CartService]
+  providers: [CartService,
+		{
+			provide: LOCALE_ID,
+			useValue: "pt-BR",
+		}]
 })
 export class AppModule { }
 

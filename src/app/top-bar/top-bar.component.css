@@ -1,4 +1,6 @@
-
+:host ::ng-deep pull-right{
+    float: right;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

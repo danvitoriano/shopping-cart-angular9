@@ -31,4 +31,11 @@ export class CartComponent {
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
   }
+
+  removerItem(id: number){
+    this.cartService.removeItemCart(id);
+  }
+  alerta(){
+    alert('ssssa')
+  }
 }
