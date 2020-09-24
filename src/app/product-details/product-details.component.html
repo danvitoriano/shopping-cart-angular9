@@ -1,10 +1,12 @@
+<!-- interpolação -->
 <h2>Product Details</h2>
 
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
+<div>
+  <h3>product.name</h3>
+  <h4>product.price | currency</h4>
+  <p>product.description</p>
 
-  <button (click)="addToCart(product)">Buy</button>
-
+  <button>Buy</button>
 </div>
+
+<!-- (click)="addToCart(product)" -->
